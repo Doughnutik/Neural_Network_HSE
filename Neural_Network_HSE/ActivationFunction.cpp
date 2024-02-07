@@ -1,11 +1,15 @@
 #include "ActivationFunction.h"
 
-ActivationFunction::ActivationFunction(func sigma, func dsigma) : sigma_{std::move(sigma)}, dsigma_{std::move(dsigma)} {}
+ActivationFunction::ActivationFunction(act_func sigma, act_func dsigma) {
+    sigma_ = sigma;
+    dsigma_ = dsigma;
+    //TODO move конструктор
+}
 
-std::vector<int> ActivationFunction::ApplySigma(const std::vector<int>& vec) {
+Vector ActivationFunction::ApplySigma(const Vector& vec) {
     return sigma_(vec);
 }
 
-std::vector<int> ActivationFunction::ApplyDsigma(const std::vector<int>& vec) {
+Vector ActivationFunction::ApplyDsigma(const Vector& vec) {
     return dsigma_(vec);
 }

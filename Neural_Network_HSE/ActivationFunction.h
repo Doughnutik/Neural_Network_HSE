@@ -1,18 +1,19 @@
 #pragma once
 #include <functional>
 #include <vector>
+#include "LinAlg.h"
 
 class ActivationFunction {
 
 public:
-    using func = std::function<std::vector<int>(std::vector<int>)>;
-    ActivationFunction(func sigma, func dsigma);
+    using act_func = std::function<Vector(Vector)>;
+    ActivationFunction(act_func sigma, act_func dsigma);
     // TODO можно сделать производную необязательным аргументом. Тогда она будет вычислительно браться от sigma.
 
-    std::vector<int> ApplySigma(const std::vector<int>& vec);
+    Vector ApplySigma(const Vector& vec);
 
-    std::vector<int> ApplyDsigma(const std::vector<int>& vec);
+    Vector ApplyDsigma(const Vector& vec);
 
 private:
-    func sigma_, dsigma_;
+    act_func sigma_, dsigma_;
 };
