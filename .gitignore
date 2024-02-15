@@ -218,3 +218,8 @@ cython_debug/
 stuff
 .DS_Store
 main
+.vscode
+code/
+*.gz
+Mnist/*.txt
+conv

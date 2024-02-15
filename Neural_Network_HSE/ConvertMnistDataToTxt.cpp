@@ -36,7 +36,7 @@ void WriteImages(std::ifstream& in, std::ofstream& out) {
 void WriteLabels(std::ifstream& in, std::ofstream& out) {
     int magic = ReadInt(in);
     size_t n = ReadInt(in);
-    std::cerr << magic << " " << n << "\n";
+    //std::cerr << magic << " " << n << "\n";
     out << n << "\n";
     for (size_t i = 0; i < n; ++i) {
         uint8_t byte;
