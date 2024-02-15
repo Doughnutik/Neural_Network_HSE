@@ -6,14 +6,11 @@
 class ActivationFunction {
 
 public:
-    using act_func = std::function<Vector(Vector)>;
-    ActivationFunction(act_func sigma, act_func dsigma);
-    // TODO можно сделать производную необязательным аргументом. Тогда она будет вычислительно браться от sigma.
+    using act_func = std::function<Vector(const Vector&, bool is_derivative)>;
+    ActivationFunction(act_func func);
 
-    Vector ApplySigma(const Vector& vec);
-
-    Vector ApplyDsigma(const Vector& vec);
+    Vector operator()(const Vector& vec, bool is_derivative = false);
 
 private:
-    act_func sigma_, dsigma_;
+    act_func func_;
 };

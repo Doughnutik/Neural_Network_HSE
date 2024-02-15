@@ -4,15 +4,5 @@
 class Sigmoida {
 public:
 
-    Vector operator()(const Vector& vec);
-
-    Matrix operator()(const Matrix& mat);
-};
-
-class DSigmoida {
-public:
-
-    Vector operator()(const Vector& vec);
-
-    Matrix operator()(const Matrix& mat);
+    Vector operator()(const Vector& vec, bool is_derivative = false);
 };

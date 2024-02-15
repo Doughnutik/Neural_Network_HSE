@@ -1,15 +1,10 @@
 #include "ActivationFunction.h"
 
-ActivationFunction::ActivationFunction(act_func sigma, act_func dsigma) {
-    sigma_ = sigma;
-    dsigma_ = dsigma;
+ActivationFunction::ActivationFunction(act_func func) {
+    func_ = func;
     //TODO move конструктор
 }
 
-Vector ActivationFunction::ApplySigma(const Vector& vec) {
-    return sigma_(vec);
-}
-
-Vector ActivationFunction::ApplyDsigma(const Vector& vec) {
-    return dsigma_(vec);
+Vector ActivationFunction::operator()(const Vector& vec, bool is_derivative = false) {
+    return func_(vec, is_derivative);
 }
